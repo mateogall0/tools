@@ -8,7 +8,7 @@
 int main()
 {
 	char *s = "Hello, how are you?", **grid;
-	int char_counter;
+	int char_counter, is_power_of_two;
 
 	grid = str_to_grid(s, " ");
 	char_counter = print_grid(grid);
@@ -18,5 +18,19 @@ int main()
 	putchar(10);
 	print_to_base(55673, 16);
 	putchar(10);
+	is_power_of_two = is_power_two(64);
+	printf("Is 64 power of 2: %d\n", is_power_of_two);
+	is_power_of_two = is_power_two(512);
+	printf("Is 512 power of 2: %d\n", is_power_of_two);
+	is_power_of_two = is_power_two(2);
+	printf("Is 2 power of 2: %d\n", is_power_of_two);
+	is_power_of_two = is_power_two(1);
+	printf("Is 1 power of 2: %d\n", is_power_of_two);
+	is_power_of_two = is_power_two(3);
+	printf("Is 3 power of 2: %d\n", is_power_of_two);
+	is_power_of_two = is_power_two(5687);
+	printf("Is 5687 power of 2: %d\n", is_power_of_two);
+	is_power_of_two = is_power_two(5684);
+	printf("Is 5684 power of 2: %d\n", is_power_of_two);
 	return (0);
 }

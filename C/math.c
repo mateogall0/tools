@@ -17,3 +17,8 @@ int print_to_base(unsigned int n, unsigned int base)
     counter = print_to_base(n / base, base);
     return (putchar(alphanumeric[n % base]) + counter);
 }
+
+int is_power_two(int n)
+{
+    return (n > 0) && ((n & (n - 1)) == 0);
+}
