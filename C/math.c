@@ -18,7 +18,12 @@ int print_to_base(unsigned int n, unsigned int base)
     return (putchar(alphanumeric[n % base]) + counter);
 }
 
+/**
+ * Checks if a number is a power of 2 non-recursevily.
+ * 
+ * Returns: 1 if is power, 0 if not.
+ */
 int is_power_two(int n)
 {
-    return (n > 0) && ((n & (n - 1)) == 0);
+    return ((n > 0) && ((n & (n - 1)) == 0));
 }
