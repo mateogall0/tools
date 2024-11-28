@@ -8,5 +8,6 @@
 
 int print_grid(char **grid);
 char **str_to_grid(const char *s, const char *delim);
+void free_grid(char **grid);
 
 #endif

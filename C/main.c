@@ -8,5 +8,6 @@ int main()
 	grid = str_to_grid(s, " ");
 	char_counter = print_grid(grid);
 	printf("%i\n", char_counter);
+	free_grid(grid);
 	return (0);
 }

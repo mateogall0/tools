@@ -13,3 +13,13 @@ int print_grid(char **grid)
 
 	return (counter);
 }
+
+void free_grid(char **grid)
+{
+	int i;
+	if (!grid)
+		return;
+	for (i = 0; grid[i]; i++)
+		free(grid[i]);
+	free(grid);
+}
