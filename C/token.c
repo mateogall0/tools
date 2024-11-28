@@ -20,8 +20,7 @@ char **str_to_grid(const char *s, const char *delim)
 	grid = malloc(sizeof(char *) * i);
     for (j = 0; j < i; j++)
     {
-        grid[i] = temp[i];
-        puts(grid[i]);
+        grid[j] = temp[j];
     }
     return (grid);
 }
