@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * Main file that runs all the implemntations.
+ * 
+ * Used for debugging purposes.
+ */
 int main()
 {
 	char *s = "Hello, how are you?", **grid;
