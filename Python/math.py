@@ -34,6 +34,16 @@ def sieve_of_eratosthenes(limit: int) -> List[int]:
 
     return [num for num, is_prime in enumerate(primes) if is_prime]
 
+def first_degree_op(a: float, b: float, y=0.0) -> float:
+    """
+    Given a first degree operation in the form of ax+b=y, this function solves
+    the ecuation returning the value of x for the given y.
+    """
+    x = (y-b) / a
+    return x
+
 if __name__ == '__main__':
     print(sieve_of_eratosthenes(60))
     print(sieve_of_eratosthenes(-5))
+    print(sieve_of_eratosthenes(2))
+    print(first_degree_op(2, 2, 3))
