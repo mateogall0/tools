@@ -40,5 +40,6 @@ int main()
 	print_int_array(5, int_arr, ", ");
 	print_int_array(5, int_arr, " separator ");
 	free(int_arr);
+	print_file_as_binary("assets/text.txt");
 	return (0);
 }

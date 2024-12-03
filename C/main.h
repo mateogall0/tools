@@ -5,9 +5,11 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <fcntl.h>
 
 /* Macros */
 #define MAX_AUX_TOKENS 1024
+#define BUFF_SIZE 1024
 
 int print_grid(char **grid);
 char **str_to_grid(const char *s, const char *delim);
@@ -17,5 +19,5 @@ int is_power_two(int n);
 int is_palindrome(const char *s);
 int print_int_array(int size, int *array, char *separator);
 int *args_to_int_array(int size, ...);
-
+int print_file_as_binary(char *s);
 #endif
