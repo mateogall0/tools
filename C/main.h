@@ -3,6 +3,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdarg.h>
+#include <unistd.h>
 
 /* Macros */
 #define MAX_AUX_TOKENS 1024
@@ -13,5 +15,7 @@ void free_grid(char **grid);
 int print_to_base(unsigned int n, unsigned int base);
 int is_power_two(int n);
 int is_palindrome(const char *s);
+int print_int_array(int size, int *array, char *separator);
+int *args_to_int_array(int size, ...);
 
 #endif

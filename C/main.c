@@ -8,7 +8,7 @@
 int main()
 {
 	char *s = "Hello, how are you?", **grid;
-	int char_counter, is_power_of_two, palindrome;
+	int char_counter, is_power_of_two, palindrome, *int_arr;
 
 	grid = str_to_grid(s, " ");
 	char_counter = print_grid(grid);
@@ -36,5 +36,9 @@ int main()
 	printf("Is 'hello' a palindrome: %d\n", palindrome);
 	palindrome = is_palindrome("racecar");
 	printf("Is 'racecar' a palindrome: %d\n", palindrome);
+	int_arr = args_to_int_array(5, 1, 2, 3, 4, 5);
+	print_int_array(5, int_arr, ", ");
+	print_int_array(5, int_arr, " separator ");
+	free(int_arr);
 	return (0);
 }
