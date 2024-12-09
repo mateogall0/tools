@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 import time
 from inspect import currentframe, getfile
+from os import getenv
 
-DEBUG = True  # in a real scenario this should be a global debug variable
+DEBUG = getenv('DEBUG', False)
 def timer(func):
     """
     Time measurer using this wrapper. Takes the time right before executing
