@@ -34,5 +34,16 @@ def __example_func():
     90**2
     time.sleep(0.1)
 
+def print_debug(key: str, value: object, separator='=') -> None:
+    """
+    Print big values of types like dictionaries with keys tp ease debugging
+    process.
+    """
+    if not DEBUG: return
+    print(key)
+    print(separator * len(key))
+    print(value, end='\n\n')
+
+
 if __name__ == '__main__':
     __example_func()
