@@ -11,6 +11,17 @@
 #define MAX_AUX_TOKENS 1024
 #define BUFF_SIZE 1024
 
+/**
+ * Debug macros
+ * 
+ * When compiling using the flag -DDEBUG will print the given values.
+ */
+#ifdef DEBUG
+    #define DEBUG_PRINT(fmt, ...) fprintf(stderr, "Debug: " fmt, ##__VA_ARGS__)
+#else
+    #define DEBUG_PRINT(fmt, ...) // DEBUG is not defined
+#endif
+
 int print_grid(char **grid);
 char **str_to_grid(const char *s, const char *delim);
 void free_grid(char **grid);

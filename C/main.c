@@ -10,6 +10,8 @@ int main()
 	char *s = "Hello, how are you?", **grid;
 	int char_counter, is_power_of_two, palindrome, *int_arr;
 
+    DEBUG_PRINT("Example\n");
+
 	grid = str_to_grid(s, " ");
 	char_counter = print_grid(grid);
 	printf("%i\n", char_counter);
