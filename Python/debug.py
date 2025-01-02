@@ -13,8 +13,8 @@ def timer(func):
     Usage:
         ```
         @timer
-         def method(self, user):
-             pass
+        def method(self, user):
+            pass
         ```
     """
     def wrapper(*ag, **kw):
@@ -36,7 +36,8 @@ def __example_func():
     90**2
     time.sleep(0.1)
 
-def print_debug(key='Print debug', value=None, separator='=') -> None:
+def print_debug(key='Print debug', value=None, separator='=',
+                end='\n\n') -> None:
     """
     Print big values of types like dictionaries with keys tp ease debugging
     process.
@@ -48,7 +49,7 @@ def print_debug(key='Print debug', value=None, separator='=') -> None:
     text = f'{key} at {file_name}:{line_number}'
     print(text)
     print(separator * len(text))
-    print(value, end='\n\n')
+    print(value, end=end)
 
 
 if __name__ == '__main__':
