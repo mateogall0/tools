@@ -42,8 +42,16 @@ def first_degree_op(a: float, b: float, y=0.0) -> float:
     x = (y-b) / a
     return x
 
+def sum_natural_numbers(n: int) -> int:
+    """
+    Sum of natural numbers up to n in O(1)
+    """
+    return n * (n+1) // 2
+
 if __name__ == '__main__':
     print(sieve_of_eratosthenes(60))
     print(sieve_of_eratosthenes(-5))
     print(sieve_of_eratosthenes(2))
     print(first_degree_op(2, 2, 3))
+    print(sum_natural_numbers(100))
+    print(sum_natural_numbers(0))
