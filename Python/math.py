@@ -93,6 +93,15 @@ def ellipse_radian(degrees: float, a=1.0, b=1.0, num_points=1000, plot=False) ->
 
     return arc_length
 
+def simple_integration(f, a, b, num_points=1000) -> float:
+    dx = (b-a) / num_points
+    integral = 0.0
+
+    for i in range(num_points):
+        x = a + i * dx
+        integral += f(x) * dx
+    return integral        
+
 if __name__ == '__main__':
     print(sieve_of_eratosthenes(60))
     print(sieve_of_eratosthenes(-5))
@@ -103,4 +112,8 @@ if __name__ == '__main__':
     print(radian(180))
     print(radian(30, 2))
     print(ellipse_radian(30, 2, 1))
-    print(ellipse_radian(90, 2, 1, plot=True))
+
+    def f(x):
+        return x**2
+    
+    print(simple_integration(f, 0, 1))
