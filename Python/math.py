@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import math
 from typing import List
-
+import matplotlib.pyplot as plt
 def digit_count(n: int) -> int:
     """
     Digit counter for integers.
@@ -48,6 +48,51 @@ def sum_natural_numbers(n: int) -> int:
     """
     return n * (n+1) // 2
 
+def radian(degrees: float, radius=1.0) -> float:
+    """
+    Convert degrees to radians.
+    """
+    return radius * degrees * math.pi / 180
+
+def ellipse_radian(degrees: float, a=1.0, b=1.0, num_points=1000, plot=False) -> float:
+    """
+    Convert degrees to radians.
+    This function specifcially works with ellipses.
+    """
+    arc_length = 0.0
+
+    step_size = radian(degrees) / num_points
+    theta_values = []
+
+    for i in range(num_points):
+        theta1 = i * step_size
+        theta2 = theta1 + step_size
+        x1 = a * math.cos(theta1)
+        y1 = b * math.sin(theta1)
+        x2 = a * math.cos(theta2)
+        y2 = b * math.sin(theta2)
+
+        dx = x2 - x1
+        dy = y2 - y1
+        ds = math.sqrt(dx**2 + dy**2)
+
+        arc_length += ds
+        if plot:
+            theta_values.append((x1, y1))
+
+    if plot:
+        x_vals, y_vals = zip(*theta_values)
+        plt.figure(figsize=(6, 6))
+        plt.plot(x_vals, y_vals, marker='o', linestyle='-', markersize=2)
+        plt.xlabel('X-axis')
+        plt.ylabel('Y-axis')
+        plt.title(f'Elliptical Arc for {degrees} Degrees')
+        plt.axis('equal')
+        plt.grid(True)
+        plt.show()
+
+    return arc_length
+
 if __name__ == '__main__':
     print(sieve_of_eratosthenes(60))
     print(sieve_of_eratosthenes(-5))
@@ -55,3 +100,7 @@ if __name__ == '__main__':
     print(first_degree_op(2, 2, 3))
     print(sum_natural_numbers(100))
     print(sum_natural_numbers(0))
+    print(radian(180))
+    print(radian(30, 2))
+    print(ellipse_radian(30, 2, 1))
+    print(ellipse_radian(90, 2, 1, plot=True))
