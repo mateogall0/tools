@@ -100,7 +100,18 @@ def simple_integration(f, a, b, num_points=1000) -> float:
     for i in range(num_points):
         x = a + i * dx
         integral += f(x) * dx
-    return integral        
+    return integral
+
+def derivative(f, x, h=1e-5, method="central"):
+    match method:
+        case 'forward':
+            return (f(x + h) - f(x)) / h
+        case 'backward':
+            return (f(x) - f(x - h)) / h
+        case 'central':
+            return (f(x + h) - f(x - h)) / (2 * h)
+        case _:
+            raise ValueError('invalid method, must be "forward", "central" or "backward"')
 
 if __name__ == '__main__':
     print(sieve_of_eratosthenes(60))
@@ -116,4 +127,19 @@ if __name__ == '__main__':
     def f(x):
         return x**2
     
+    def f2(x):
+        return x**3
+    
     print(simple_integration(f, 0, 1))
+
+    x0 = 50
+    h=1e-5
+
+    forward_result = derivative(f2, x0, h, "forward")
+    backward_result = derivative(f2, x0, h, "backward")
+    central_result = derivative(f2, x0, h, "central")
+
+    print(f"Forward Difference: {forward_result}")
+    print(f"Backward Difference: {backward_result}")
+    print(f"Central Difference: {central_result}")
+    print(f"Exact Derivative: {3*x0**2}")
