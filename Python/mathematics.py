@@ -2,6 +2,7 @@
 import math
 from typing import List
 import matplotlib.pyplot as plt
+import numpy as np
 def digit_count(n: int) -> int:
     """
     Digit counter for integers.
@@ -93,7 +94,7 @@ def ellipse_radian(degrees: float, a=1.0, b=1.0, num_points=1000, plot=False) ->
 
     return arc_length
 
-def simple_integration(f, a, b, num_points=1000) -> float:
+def reimann_sum_integration(f, a, b, num_points=1000) -> float:
     dx = (b-a) / num_points
     integral = 0.0
 
@@ -101,6 +102,11 @@ def simple_integration(f, a, b, num_points=1000) -> float:
         x = a + i * dx
         integral += f(x) * dx
     return integral
+
+def trapezoidal_rule_integration(f, a, b, num_points=1000) -> float:
+    x = np.linspace(a, b, num_points)
+    y = f(x)
+    return np.trapezoid(y, x)
 
 def derivative(f, x, h=1e-5, method="central"):
     match method:
@@ -130,7 +136,8 @@ if __name__ == '__main__':
     def f2(x):
         return x**3
     
-    print(simple_integration(f, 0, 1))
+    print('Reimann Sum Integration', reimann_sum_integration(f, 0, 1))
+    print('Trapezoidal Rule Integration', trapezoidal_rule_integration(f, 0, 1))
 
     x0 = 50
     h=1e-5
