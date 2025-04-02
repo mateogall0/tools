@@ -119,6 +119,11 @@ def derivative(f, x, h=1e-5, method="central"):
         case _:
             raise ValueError('invalid method, must be "forward", "central" or "backward"')
 
+def get_pi(num_points=10000) -> float:
+    def f(x):
+        return 1 / (1+x**2)
+    return 4 * trapezoidal_rule_integration(f, 0, 1, num_points)
+
 if __name__ == '__main__':
     print(sieve_of_eratosthenes(60))
     print(sieve_of_eratosthenes(-5))
@@ -150,3 +155,5 @@ if __name__ == '__main__':
     print(f"Backward Difference: {backward_result}")
     print(f"Central Difference: {central_result}")
     print(f"Exact Derivative: {3*x0**2}")
+    pi = get_pi(100000)
+    print(f"PI: {pi}")
